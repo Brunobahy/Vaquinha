@@ -1,0 +1,87 @@
+.mensagem {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    background-color: #d9fdd3;
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+    width: 10px;
+    height: 10px;
+    right: -5px;
+    top: 0;
+}
+
+
+.texto{
+    font-size: 15px;
+    line-height: 20px;
+}
+.container {
+    background-color: #d9fdd3;
+    padding: 6px 7px 15px 9px;
+    border-radius: 5px;
+    width: fit-content;
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    margin: 10px;
+}
+
+
+.horario {
+    font-size: 10px;
+    color: #667781;
+    position: absolute;
+    bottom: 2px;
+    right: 25px;
+}
+
+.visto {
+    color: #53bdeb;
+    height: 20px;
+    position: absolute;
+    letter-spacing: -5px;
+    bottom: -2px;
+    right: 8px;
+}
+
+.foto {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.texto{
+    padding-right: 10px;
+}
+.conteudo {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+.container__foto__grande{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 2;
+}
+
+.foto__grande{
+    scale: 0.25;
+    z-index: 3;
+}
