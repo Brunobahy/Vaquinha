@@ -94,7 +94,10 @@
     z-index: 2;
 }
 
+
 .foto__grande{
-    scale: 0.25;
+    display: block;
+    margin: 0 auto;
+    width: 90%;
     z-index: 3;
 }
