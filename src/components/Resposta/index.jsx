@@ -3,12 +3,23 @@ import styles from "./Resposta.module.css";
 import { motion } from "framer-motion";
 import art from "./art.jpg";
 import liv from "./liv.jpg";
-export default function Resposta({ texto, foto, pessoa, textoVermelho }) {
+export default function Resposta({
+  texto,
+  foto,
+  pessoa,
+  textoVermelho,
+  tempo,
+}) {
   const [click, setClick] = useState(false);
 
   return (
     <>
-      <div className={styles.mensagem}>
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: tempo, type:"just"}}
+        className={styles.mensagem}
+      >
         {pessoa === "art" ? (
           <img src={art} alt="" className={styles.pessoa} />
         ) : (
@@ -16,9 +27,15 @@ export default function Resposta({ texto, foto, pessoa, textoVermelho }) {
         )}
         <span className={styles.clip}></span>
         <div className={styles.container}>
-          {pessoa === "art"
-          ? <h3 className={styles.nome} style={{color:"#A5A234"}}>Arthur</h3>
-          : <h3 className={styles.nome} style={{color:"#e26ab6"}}>Livian</h3>}
+          {pessoa === "art" ? (
+            <h3 className={styles.nome} style={{ color: "#A5A234" }}>
+              Arthur
+            </h3>
+          ) : (
+            <h3 className={styles.nome} style={{ color: "#e26ab6" }}>
+              Livian
+            </h3>
+          )}
           {foto ? (
             <div className={styles.conteudo}>
               {foto && (
@@ -41,7 +58,7 @@ export default function Resposta({ texto, foto, pessoa, textoVermelho }) {
           )}
           <span className={styles.horario}>16:04</span>
         </div>
-      </div>
+      </motion.div>
       {click && (
         <div className={styles.container__foto__grande}>
           <motion.div
