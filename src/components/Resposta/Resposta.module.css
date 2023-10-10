@@ -16,7 +16,7 @@
 }
 
 
-.pessoa{
+.pessoa {
     width: 30px;
     height: 30px;
     border-radius: 30px;
@@ -35,7 +35,7 @@
     margin: 15px 5px 0px 5px;
 }
 
-.nome{
+.nome {
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 5px;
@@ -64,7 +64,7 @@
     gap: 10px;
 }
 
-.texto{
+.texto {
     font-size: 15px;
     line-height: 20px;
 }
@@ -81,7 +81,7 @@
     backdrop-filter: blur(5px);
 }
 
-.container__foto__grande{
+.container__foto__grande {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,11 +90,11 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0, 0, 0, 0.2);
     z-index: 2;
 }
 
-.foto__grande{
+.foto__grande {
     display: block;
     margin: 0 auto;
     width: 90%;

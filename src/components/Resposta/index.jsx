@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import styles from "./Resposta.module.css";
 import { motion } from "framer-motion";
 import art from "./art.jpg";
 import liv from "./liv.jpg";
 export default function Resposta({
-  texto,
+  texto = "",
   foto,
   pessoa,
-  textoVermelho,
+  horario,
   tempo,
+  cor = "black",
 }) {
   const [click, setClick] = useState(false);
+
+  let listaTexto = texto.split("$&");
 
   return (
     <>
       <motion.div
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
-        transition={{ delay: tempo, type:"just"}}
+        transition={{ delay: tempo, type: "just" }}
         className={styles.mensagem}
       >
         {pessoa === "art" ? (
@@ -25,7 +28,9 @@ export default function Resposta({
         ) : (
           <img src={liv} alt="" className={styles.pessoa} />
         )}
+
         <span className={styles.clip}></span>
+
         <div className={styles.container}>
           {pessoa === "art" ? (
             <h3 className={styles.nome} style={{ color: "#A5A234" }}>
@@ -36,6 +41,7 @@ export default function Resposta({
               Livian
             </h3>
           )}
+
           {foto ? (
             <div className={styles.conteudo}>
               {foto && (
@@ -50,15 +56,30 @@ export default function Resposta({
             </div>
           ) : (
             <p className={styles.texto}>
-              {texto}
-              <strong style={{ color: "red", fontWeight: "700" }}>
-                {textoVermelho}
-              </strong>
+              {listaTexto.map((texto) => {
+                if (texto[0] === "%") {
+                  return (
+                    <strong
+                      style={{
+                        color: cor,
+                        fontWeight: "700",
+                        display: "inline",
+                      }}
+                    >
+                      {texto.split("%")}
+                    </strong>
+                  );
+                } else {
+                  return texto;
+                }
+              })}
             </p>
           )}
-          <span className={styles.horario}>16:04</span>
+
+          <span className={styles.horario}>{horario}</span>
         </div>
       </motion.div>
+
       {click && (
         <div className={styles.container__foto__grande}>
           <motion.div
